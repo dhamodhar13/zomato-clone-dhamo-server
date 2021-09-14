@@ -30,7 +30,6 @@ exports.payment = (req, res) => {
     * Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
     */
     var paytmChecksum = PaytmChecksum.generateSignature(params, process.env.PAYTM_MERCHANT_KEY);
-    console.log(paytmChecksum)
     paytmChecksum.then(function (checksum) {
         let paytmParams = {
             ...params,
