@@ -6,7 +6,7 @@ const PaytmChecksum = require('./checksum');
 const order = require('../models/orders');
 
 
-exports.payment = (req, res) => {
+exports.payment = async (req, res) => {
     const { amount, email } = req.body;
 
     /* import checksum generation utility */
@@ -29,8 +29,8 @@ exports.payment = (req, res) => {
     * Generate checksum by parameters we have
     * Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
     */
-    var paytmChecksum = PaytmChecksum.generateSignature(params, process.env.PAYTM_MERCHANT_KEY);
-    
+    var paytmChecksum = await PaytmChecksum.generateSignature(params, process.env.PAYTM_MERCHANT_KEY);
+    console.log(paytmChecksum)
     paytmChecksum.then(function (checksum) {
         let paytmParams = {
             ...params,
