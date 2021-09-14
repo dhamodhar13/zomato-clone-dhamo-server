@@ -15,7 +15,7 @@ app.options('*', cors());
 app.use(express.json());
 app.use('/', appRouter);
 
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+mongoose.connect('mongodb+srv://user00:GTJzQ5SGNlO43Tyi@edureka-fullstack-proje.nq1mx.mongodb.net/database0?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
     .then(
     app.listen(port, host)
 ).catch(err => console.log(err));
