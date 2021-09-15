@@ -9,11 +9,11 @@ const host = '0.0.0.0';
 
 const app = express();
 
-app.use(cors());
-app.options('*', cors());
+// app.use(cors());
+// app.options('*', cors());
 
-app.use(express.json());
-app.use('/', appRouter);
+// app.use(express.json());
+// app.use('/', appRouter);
 
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = procecss.env.DB_PASSWORD;
@@ -23,3 +23,8 @@ mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@edureka-fullstack-proj
     app.listen(port, host)
 ).catch(err => console.log(err));
 
+app.use(cors());
+app.options('*', cors());
+
+app.use(express.json());
+app.use('/', appRouter);
