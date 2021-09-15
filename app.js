@@ -8,10 +8,10 @@ const port = process.env.PORT || 5000;
 const host = '0.0.0.0';
 
 const app = express();
-app.use(express.json());
+
 app.use(cors());
 app.options('*', cors());
-
+app.use(express.json());
 app.use('/', appRouter);
 
 const DB_USER = process.env.DB_USER;
