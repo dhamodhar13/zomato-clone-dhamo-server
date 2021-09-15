@@ -4,9 +4,6 @@ const express = require('express');
 // Importing 'express.Router' function
 const router = express.Router();
 
-// Importing 'body' and 'validationResult' objects from 'express-validator' package
-const { body, validationResult } = require('express-validator');
-
 // importing model file
 const locationData = require('../models/location');
 const restaurantData = require('../models/restaurant');
